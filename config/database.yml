@@ -2,16 +2,12 @@ development:
   adapter: postgresql
   database: quiz_development
   pool: 5
-  username: quiz_app
-  password: password1
   timeout: 5000
 
 
 test: &test
   adapter: postgresql
   database: quiz_test
-  username: quiz_app
-  password: password1
   pool: 5
   timeout: 5000
 

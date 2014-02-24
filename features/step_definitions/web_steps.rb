@@ -13,6 +13,6 @@ When(/^I press "([^\"]+)"$/) do |name|
 end
 
 Then(/^I should be added as a user$/) do
-  expect(User.first).to eq(1)
+  expect(User.exists?).to eq(true)
 end
 
