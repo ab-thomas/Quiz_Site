@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @current_user = current_user
   end
 
   def new
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to users_path
+      session[:user_id] = @user.id
     else
       redirect_to new_user_path(@user)
     end

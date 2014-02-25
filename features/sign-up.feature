@@ -2,11 +2,10 @@ Feature: User Sign up
 
   Scenario: Enter valid details
     When I go to sign up
-    And I fill in the following:
-    | user[email]                     |test@test.com|
-    | user[username]                  |mr_test      |
-    | user[password]                  |password     |
-    | user[password_confirmation]     |password     |
-    And I press "Sign Up"
-    Then "mr_test" should be added as a user
+    Then I should be added as a user
     And I should be logged in
+
+  Scenario: Signing up with existing username
+    Given desired username is taken
+    When I go to sign up
+    Then I should see "username unavailable"
