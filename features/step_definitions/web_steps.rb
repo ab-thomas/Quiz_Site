@@ -12,7 +12,7 @@ When(/^I press "([^\"]+)"$/) do |name|
   click_button(name)
 end
 
-Then(/^I should be added as a user$/) do
-  expect(User.exists?).to eq(true)
+Then(/^"([^\"]+)" should be added as a user$/) do |username|
+  expect(User.find_by_username(username)).to eq(1)
 end
 

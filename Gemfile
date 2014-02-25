@@ -15,6 +15,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'better_errors'
+end
+
 group :test do
   gem 'cucumber-rails', require: false
   gem 'rspec-rails'

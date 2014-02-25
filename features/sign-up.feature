@@ -8,4 +8,5 @@ Feature: User Sign up
     | user[password]                  |password     |
     | user[password_confirmation]     |password     |
     And I press "Sign Up"
-    Then I should be added as a user
+    Then "mr_test" should be added as a user
+    And I should be logged in
