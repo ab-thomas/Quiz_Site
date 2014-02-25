@@ -22,3 +22,4 @@ Given(/^desired username is taken$/) do
   User.create(username: @username)
 end
 
+
