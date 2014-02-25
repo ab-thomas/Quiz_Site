@@ -16,3 +16,4 @@ Then(/^"([^\"]+)" should be added as a user$/) do |username|
   expect(User.find_by_username(username)).to eq(1)
 end
 
+
