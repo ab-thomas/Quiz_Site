@@ -1,6 +1,7 @@
 class QuizController < ApplicationController
   def index
   	@question = Question.first
+
   end
 
   def show 

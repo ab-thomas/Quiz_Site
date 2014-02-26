@@ -1,1 +1,5 @@
-Herro
+<% if @current_user %>
+  <%= @current_user.username %>
+<% else %>
+  <button> log in </button>
+<% end %>
