@@ -1,6 +1,9 @@
 Quiz::Application.routes.draw do
   resources :users
-  resources :quiz
+  resources :questions
 
-  root 'quiz#index'
+  post 'questions/check'
+
+  root 'questions#index'
+
 end

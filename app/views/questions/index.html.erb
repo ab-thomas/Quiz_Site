@@ -1,0 +1,11 @@
+<h1> Welcome </h1>
+
+<h3> Add a question </h3>
+
+<%= form_for(@question) do |form| %>
+	<%= form.text_area :question %> <br>
+	<input type='radio' name='answer' value='true' id='answer_true'> True <br>
+	<input type='radio' name='answer' value='false' id='answer_false'> False <br>
+	<%= form.submit 'Submit Question'%>
+<% end %>
+

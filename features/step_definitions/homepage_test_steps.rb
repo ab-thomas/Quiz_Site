@@ -21,3 +21,9 @@ Then(/^I should see True and False$/) do
   page.should have_content("True")
   page.should have_content("False")
 end
+
+Then /^I should be able to add a question and answer$/ do
+	fill_in('question_question', with: 'Adding a question')
+	choose("answer_true")
+	click_button("Submit Question")
+end

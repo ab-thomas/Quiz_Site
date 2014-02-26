@@ -1,0 +1,8 @@
+<h3> Here is your question </h3>
+
+<%= form_tag questions_check_path do %>
+	<%= @question.question %> <br>
+	<input type='radio' name='answer' value='true'> True <br>
+	<input type='radio' name='answer' value='false'> False <br>
+	<input type='submit' value='Submit'>
+<% end %>
