@@ -1,6 +1,6 @@
 Quiz::Application.routes.draw do
   resources :users
-  get "quiz/index"
+  resources :quiz
 
   root 'quiz#index'
 end

@@ -1,6 +1,5 @@
-# require_relative '../homepage_test.feature'
 
-Given "I am in the homepage" do 
+Given /^I am in the homepage$/ do 
  visit '/'
 end
 
@@ -9,16 +8,19 @@ Then /^I should see "([^\"]*)"$/ do |text|
 end
 
 
-Given(/^There is a question$/) do
+Given /^There are two questions$/ do
   Question.create(question: "This is a question", answer: "true")
+  Question.create(question: "This is another question", answer: "false")
 end
 
-Then(/^i should see a question$/) do
-  page.should
+And /^I should not see "(.*?)"$/ do |text| 
+  page.should_not have_content(text)
 end
 
-Then(/^I should be logged in$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see True and False$/) do 
+  page.should have_content("True")
+  page.should have_content("False")
 end
+
 
 
