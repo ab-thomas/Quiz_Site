@@ -8,4 +8,4 @@ Feature: User Sign up
   Scenario: Signing up with existing username
     Given desired username is taken
     When I go to sign up
-    Then I should see "username unavailable"
+    Then I should see "Username has already been taken"
