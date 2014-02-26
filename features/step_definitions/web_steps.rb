@@ -1,19 +1,28 @@
-When(/^I go to sign up$/) do
+username = 'mr_test'
+password = 'password'
+email = 'test@test.com'
+
+def sign_up(username, email, password)
   visit '/users/new'
+  fill_in('user[username]', with: username)
+  fill_in('user[email]', with: email)
+  fill_in('user[password]', with: password)
+  fill_in('user[password_confirmation]', with: password)
+  click_button 'Sign Up'
 end
 
-When(/^I fill in the following:$/) do |fields|
-  fields.rows_hash.each do |name, value|
-    fill_in(name, :with => value)
-  end
+When(/^I go to sign up$/) do
+  sign_up(username, email, password)
 end
 
-When(/^I press "([^\"]+)"$/) do |name|
-  click_button(name)
+Then(/^I should be added as a user$/) do
+  expect(User.find_by_username(username)).to be_true
 end
 
-Then(/^"([^\"]+)" should be added as a user$/) do |username|
-  expect(User.find_by_username(username)).to eq(1)
+Then(/^I should be logged in$/) do
+  expect(page).to have_content(username)
 end
 
-
+Given(/^desired username is taken$/) do
+  sign_up(username, email, password)
+end
