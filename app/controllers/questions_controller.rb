@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
 	end
 
 	def check
+		
 		redirect_to questions_path
 	end
 
