@@ -9,11 +9,8 @@ class QuestionsController < ApplicationController
 	end
 
 	def show
-		@current_question_id = params[:id] 
-		puts @current_question_id
+		@current_question_id = params[:id]
 		@question = Question.find(params[:id])
-		# @question.answer == @
-		# redirect_to 
 	end
 
 	def create
@@ -22,13 +19,10 @@ class QuestionsController < ApplicationController
 	end
 
 	def check
-		puts @current_question_id
-		@current_question = current_question
-		puts @current_question
-		@question.answer == params[:answer]
-		# @question.answer
-
-		redirect_to questions_path
+		current_question = Question.find(params[:id])
+		given_answer = params[:answer]
+		@correct = current_question.answer == given_answer
+		
 	end
 
 end
