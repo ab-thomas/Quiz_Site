@@ -1,0 +1,25 @@
+<h1> Welcome </h1>
+<% if @current_user %>
+  <%= @current_user.username %>
+  <%= form_tag signout_path do %>
+    <%= submit_tag('Log out') %>
+  <% end %>
+<% else %>
+  <%= form_tag signin_path do %>
+    <%= text_field_tag(:username, nil,placeholder: 'Username') %>
+    <%= password_field_tag(:password, nil, placeholder: "Password") %>
+    <%= submit_tag('Login') %>
+  <% end %>
+  <button>Sign up</button>
+<% end %>
+
+
+<h3> Add a question </h3>
+
+<%= form_for(@question) do |form| %>
+	<%= form.text_area :question, placeholder: "Please type a question..." %> <br>
+	<label><input type='radio' name='answer' value='true'>True</label><br>
+	<label><input type='radio' name='answer' value='false'>False</label><br>
+	<%= form.submit 'Submit Question'%>
+<% end %>
+

@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+<% if @user %>
+  <button>Log out</button>
+<% else %>
+  <button>Sign up</button>
+  <button>Log in</button>
+<% end %>
+</header>
 
 <%= yield %>
 
