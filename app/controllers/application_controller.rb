@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_question
-		Question.find_by_id(params[:id])
-	end
+    Question.find_by_id(params[:id])
+  end
 end

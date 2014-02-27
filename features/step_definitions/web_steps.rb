@@ -11,9 +11,9 @@ def sign_up(username, email, password)
   click_button 'Sign Up'
 end
 
-def sign_in(username, password)
-  fill_in('user[username]', with: username)
-  fill_in('user[password]', with: password)
+def fill_out_login(username, password)
+  fill_in('username', with: username)
+  fill_in('password', with: password)
 end
 
 When(/^I go to sign up$/) do
@@ -33,9 +33,22 @@ Given(/^desired username is taken$/) do
 end
 
 When(/^I fill in username and password$/) do
-  sign_in(username, password)
+  fill_out_login(username, password)
 end
 
-When(/^I press the login button$/) do
+When(/^I press the "(.+?)" button$/) do |name|
+  click_button name
+end
+
+Given(/^there is a valid user$/) do
+  User.create!(username: username, email: email, password: password, password_confirmation: password)
+end
+
+When(/^I am logged in$/) do
+  fill_out_login(username, password)
   click_button 'Login'
+end
+
+Then(/^I should be logged out$/) do
+  expect(page).not_to have_content(username)
 end
