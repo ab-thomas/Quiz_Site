@@ -8,9 +8,9 @@
 <h3> Add a question </h3>
 
 <%= form_for(@question) do |form| %>
-	<%= form.text_area :question %> <br>
-	<input type='radio' name='answer' value='true' id='answer_true'> True <br>
-	<input type='radio' name='answer' value='false' id='answer_false'> False <br>
+	<%= form.text_area :question, placeholder: "Please type a question..." %> <br>
+	<label><input type='radio' name='answer' value='true'>True</label><br>
+	<label><input type='radio' name='answer' value='false'>False</label><br>
 	<%= form.submit 'Submit Question'%>
 <% end %>
 

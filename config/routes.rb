@@ -1,9 +1,6 @@
 Quiz::Application.routes.draw do
-  # get '/users', to: 'questions#index'
   resources :users
   resources :questions
-  post 'questions/check'
-
+  post 'questions/:id', to: 'questions#check', as: 'check'
   root 'questions#index'
-
 end

@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
 	end
 
 	def show
+		@current_question_id = params[:id]
 		@question = Question.find(params[:id])
 	end
 
@@ -16,8 +17,9 @@ class QuestionsController < ApplicationController
 	end
 
 	def check
-
-		redirect_to questions_path
+		current_question = Question.find(params[:id])
+		given_answer = params[:answer]
+		@correct = current_question.answer == given_answer
 	end
 
 end
