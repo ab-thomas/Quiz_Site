@@ -1,6 +1,6 @@
 <ul>
-  <% if @errors %>
-    <% @errors.each do |message| %>
+  <% if session[:errors] %>
+    <% session[:errors].each do |message| %>
     <li><%= message %></li>
     <% end  %>
   <% end %>

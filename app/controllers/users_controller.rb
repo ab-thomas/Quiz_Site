@@ -4,14 +4,15 @@ class UsersController < ApplicationController
   end
 
   def new
+    # session[:errors] = nil
     @user = User.create
-    @errors = session[:errors]
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      session[:errors] = nil
+      redirect_to root_path
       session[:user_id] = @user.id
     else
       session[:errors] =  @user.errors.full_messages

@@ -11,6 +11,11 @@ def sign_up(username, email, password)
   click_button 'Sign Up'
 end
 
+def sign_in(username, password)
+  fill_in('user[username]', with: username)
+  fill_in('user[password]', with: password)
+end
+
 When(/^I go to sign up$/) do
   sign_up(username, email, password)
 end
@@ -25,4 +30,12 @@ end
 
 Given(/^desired username is taken$/) do
   sign_up(username, email, password)
+end
+
+When(/^I fill in username and password$/) do
+  sign_in(username, password)
+end
+
+When(/^I press the login button$/) do
+  click_button 'Login'
 end

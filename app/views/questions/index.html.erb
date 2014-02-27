@@ -1,4 +1,9 @@
 <h1> Welcome </h1>
+<% if @current_user %>
+  <%= @current_user.username %>
+<% else %>
+  <button> log in </button>
+<% end %>
 
 <h3> Add a question </h3>
 
