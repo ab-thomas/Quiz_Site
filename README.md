@@ -16,6 +16,6 @@ A quiz is just a set of questions that can be answered true or false.<p>
 - the easiest question
 - a table of all users and their scores (percentage of correct answers)<p>
 
-**Technologies: Ruby on Rails, Active Record, Postgres, Asset Pipeline, Routing and REST, HTML and CSS, Bcrypt, RSpec, Capybara and Cucumber**
+**Technologies and Approaches: Ruby on Rails, Active Record, Postgres, Asset Pipeline, Routing and REST, HTML and CSS, Bcrypt, RSpec, Capybara and Cucumber**
 
 Team: [Biwek Shrestha](https://github.com/biwek), [Makis Otman](https://github.com/Maikon) and [Peter Saxton](https://github.com/Maikon) 
